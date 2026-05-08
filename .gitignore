@@ -24,6 +24,7 @@ pnpm-debug.log*
 *.pem
 .vscode
 .idea
+tsconfig.tsbuildinfo
 
 # temporary QA screenshots
 qa-*.png
