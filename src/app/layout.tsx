@@ -14,31 +14,66 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://touraykunda.gm";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Touray Kunda Enterprise | Building Materials, Plumbing & Electrical Supplies in The Gambia",
+    default: "Building Materials, Plumbing & Electrical Supplies in The Gambia | Touray Kunda Enterprise",
     template: "%s | Touray Kunda Enterprise"
   },
   description:
-    "Touray Kunda Enterprise supplies building materials, plumbing supplies, electricals, lighting, toilets, sanitary ware, pipes and fittings across The Gambia.",
+    "Touray Kunda Enterprise is a Gambian supplier of building materials, plumbing supplies, sanitary ware, pipes, fittings, lighting and electrical products for homes, contractors and project buyers across The Gambia.",
   keywords: [
     "building materials The Gambia",
+    "building material supplier Gambia",
+    "hardware store The Gambia",
+    "construction materials Gambia",
     "plumbing supplies Gambia",
+    "pipes and fittings Gambia",
     "electrical supplies Gambia",
     "lighting Gambia",
-    "toilets sanitary ware",
-    "pipes fittings",
+    "sanitary ware Gambia",
+    "toilets sanitary ware Gambia",
+    "bathroom fittings Gambia",
+    "contractor materials The Gambia",
+    "Banjul building materials",
+    "Serrekunda plumbing supplies",
     "Touray Kunda Enterprise",
-    "B.S.T Building Materials Plumbing Electricals"
+    "B.S.T Building Materials Plumbing Electricals",
+    "IFAN partner Gambia"
   ],
+  category: "business",
   openGraph: {
-    title: "Touray Kunda Enterprise",
-    description: "Quality building materials, plumbing, sanitary ware, lighting and electrical supplies in The Gambia.",
+    title: "Touray Kunda Enterprise | Building Materials, Plumbing & Electrical Supplies in The Gambia",
+    description: "Quality building materials, plumbing, sanitary ware, lighting and electrical supplies for homes, contractors and commercial projects in The Gambia.",
     url: siteUrl,
     siteName: "Touray Kunda Enterprise",
     type: "website",
-    locale: "en_GM"
+    locale: "en_GM",
+    images: [
+      {
+        url: "/bst-logo.png",
+        width: 638,
+        height: 638,
+        alt: "Touray Kunda Enterprise BST logo"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Touray Kunda Enterprise | Building Materials in The Gambia",
+    description: "Building materials, plumbing supplies, pipes, fittings, sanitary ware, lighting and electrical products in The Gambia.",
+    images: ["/bst-logo.png"]
   },
   alternates: {
     canonical: "/"
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1
+    }
   },
   icons: {
     icon: "/bst-logo.png",

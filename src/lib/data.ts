@@ -29,6 +29,7 @@ export type Product = {
   availability: "Available" | "Request availability";
   imageUrl: string;
   specs: string[];
+  brand?: string;
   featured?: boolean;
 };
 
@@ -59,7 +60,7 @@ export const categories: Category[] = [
     name: "Plumbing Supplies",
     description: "Reliable parts for water systems, bathrooms and maintenance work.",
     imageHint: "valves, taps, pipe joints",
-    imageUrl: "https://images.unsplash.com/photo-1765277789190-22f77c5e7046",
+    imageUrl: "https://www.ifan-solution.com/uploads/202535186/small/ifan-white-ppr-fittings1b76e019-caeb-4caf-bb89-ff64f78be6e2.webp",
     icon: "plumbing"
   },
   {
@@ -75,7 +76,7 @@ export const categories: Category[] = [
     name: "Pipes & Fittings",
     description: "PVC pipes, elbows, tees, couplers and installation fittings.",
     imageHint: "PVC pipes",
-    imageUrl: "https://images.unsplash.com/photo-1768321903687-b0fbf41d4514",
+    imageUrl: "https://www.ifan-solution.com/uploads/202235186/small/ppr-pipe-for-hot-and-cold-water58357910166.jpg",
     icon: "pipes"
   },
   {
@@ -148,14 +149,37 @@ export const products: Product[] = [
   },
   {
     slug: "pvc-pipes",
-    name: "PVC Pipes",
+    name: "PPR & PVC Pipe Range",
     category: "pipes-fittings",
     spec: "Common plumbing sizes and lengths",
-    description: "Durable PVC pipes for plumbing and construction water systems.",
+    description: "Durable pipe options for plumbing, renovation and construction water systems.",
     availability: "Available",
-    imageUrl: "https://images.unsplash.com/photo-1765277789190-22f77c5e7046",
+    imageUrl: "https://www.ifan-solution.com/uploads/202235186/small/ppr-pipe-for-hot-and-cold-water58357910166.jpg",
+    brand: "IFAN",
     featured: true,
-    specs: ["Multiple diameters", "PVC construction", "Pipe fittings available", "Bulk requests supported"]
+    specs: ["Multiple diameters", "Hot and cold water options", "Pipe fittings available", "Bulk requests supported"]
+  },
+  {
+    slug: "ppr-pipe-fittings",
+    name: "PPR Pipe Fittings",
+    category: "pipes-fittings",
+    spec: "Tees, elbows, couplers and reducers",
+    description: "PPR fitting options for plumbers, contractors and water system installations.",
+    availability: "Available",
+    imageUrl: "https://www.ifan-solution.com/uploads/202535186/small/ifan-white-ppr-fittings5859aedc-d2d2-47c3-857d-76bf16504d1c.webp",
+    brand: "IFAN",
+    specs: ["Installation fittings", "Multiple fitting types", "Project quantities", "Suitable for plumbing systems"]
+  },
+  {
+    slug: "water-line-fittings",
+    name: "Water Line Fittings",
+    category: "plumbing-supplies",
+    spec: "General fittings for residential and project plumbing",
+    description: "Reliable plumbing fittings supplied for home builds, maintenance work and construction projects.",
+    availability: "Available",
+    imageUrl: "https://www.ifan-solution.com/uploads/202535186/small/ifan-white-ppr-fittingsee572d6d-a567-4f7c-a8a6-f219c0752d84.webp",
+    brand: "IFAN",
+    specs: ["General plumbing use", "Useful for repairs and new work", "Sizing options available", "Ask for matching pipe systems"]
   },
   {
     slug: "electrical-sockets",
@@ -259,7 +283,7 @@ export const galleryImages = [
   {
     title: "Pipes & Plumbing",
     category: "pipes-fittings",
-    imageUrl: "https://images.unsplash.com/photo-1765277789190-22f77c5e7046"
+    imageUrl: "https://www.ifan-solution.com/uploads/202235186/small/ppr-pipe-for-hot-and-cold-water58357910166.jpg"
   },
   {
     title: "Construction Materials",

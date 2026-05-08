@@ -4,7 +4,15 @@ import { SectionHeading } from "@/components/site/section-heading";
 
 export const metadata: Metadata = {
   title: "Product Categories",
-  description: "Explore general product categories including building materials, plumbing supplies, electrical products, lighting, toilets, sanitary ware, pipes and fittings from Touray Kunda Enterprise."
+  description:
+    "Explore building materials, plumbing supplies, pipes and fittings, sanitary ware, lighting and electrical product categories from Touray Kunda Enterprise in The Gambia.",
+  keywords: [
+    "building materials categories The Gambia",
+    "plumbing supplies Gambia",
+    "electrical materials Gambia",
+    "sanitary ware Gambia",
+    "pipes and fittings The Gambia"
+  ]
 };
 
 export default function ProductsPage() {

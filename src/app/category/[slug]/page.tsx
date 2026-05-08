@@ -14,7 +14,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!category) return {};
   return {
     title: category.name,
-    description: `${category.name} from Touray Kunda Enterprise in The Gambia. ${category.description}`
+    description: `${category.name} from Touray Kunda Enterprise in The Gambia. ${category.description}`,
+    keywords: [
+      `${category.name} The Gambia`,
+      `${category.name} Gambia`,
+      "Touray Kunda Enterprise",
+      "building materials supplier Gambia"
+    ]
   };
 }
 

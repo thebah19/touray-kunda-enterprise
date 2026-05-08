@@ -15,3 +15,21 @@ export function whatsappLink(message = "Hello Touray Kunda Enterprise, I would l
 export function phoneLink(phone = PHONE_NUMBERS[0]) {
   return `tel:${phone.replace(/\s/g, "")}`;
 }
+
+export function getOptimizedImageUrl(imageUrl: string, width: number, quality = 82) {
+  try {
+    const url = new URL(imageUrl);
+
+    if (url.hostname === "images.unsplash.com") {
+      url.searchParams.set("auto", "format");
+      url.searchParams.set("fit", "crop");
+      url.searchParams.set("w", String(width));
+      url.searchParams.set("q", String(quality));
+      return url.toString();
+    }
+  } catch {
+    return imageUrl;
+  }
+
+  return imageUrl;
+}

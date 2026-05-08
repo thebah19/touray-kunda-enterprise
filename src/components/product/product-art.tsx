@@ -1,6 +1,6 @@
 import { Bath, Blocks, Cable, Drill, Lightbulb, Plug, ShowerHead, Toilet, Wrench } from "lucide-react";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
+import { cn, getOptimizedImageUrl } from "@/lib/utils";
 
 const iconMap = {
   "building-materials": Blocks,
@@ -39,7 +39,7 @@ export function ProductArt({
     >
       {imageUrl ? (
         <Image
-          src={`${imageUrl}?auto=format&fit=crop&w=${large ? 1200 : 760}&q=82`}
+          src={getOptimizedImageUrl(imageUrl, large ? 1200 : 760)}
           alt={label}
           fill
           sizes={large ? "(min-width: 1024px) 50vw, 100vw" : "(min-width: 1024px) 30vw, 100vw"}

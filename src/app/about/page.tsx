@@ -5,7 +5,8 @@ import { SectionHeading } from "@/components/site/section-heading";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn about Touray Kunda Enterprise, a Gambian supplier of building materials, plumbing, electrical and sanitary ware products."
+  description:
+    "Learn about Touray Kunda Enterprise, a Gambian supplier of building materials, plumbing, electrical and sanitary ware products, and an official IFAN partner."
 };
 
 export default function AboutPage() {
@@ -20,7 +21,7 @@ export default function AboutPage() {
         <div className="rounded-[2rem] bg-gradient-to-br from-primary to-sky-500 p-8 text-white shadow-2xl shadow-sky-900/20">
           <h2 className="font-display text-3xl font-black tracking-tight">Built for serious material buyers.</h2>
           <p className="mt-4 leading-8 text-sky-50">
-            The business focuses on practical support: clear product guidance, WhatsApp ordering, quote requests and a wide range of building, plumbing, electrical, lighting and sanitary ware products.
+            The business focuses on practical support: clear product guidance, WhatsApp ordering, quote requests and a wide range of building, plumbing, electrical, lighting and sanitary ware products, including IFAN-related pipe and fitting requests.
           </p>
         </div>
       </div>

@@ -9,7 +9,7 @@ import { CategoryCard } from "@/components/product/category-card";
 import { QuoteForm } from "@/components/site/quote-form";
 import { SectionHeading } from "@/components/site/section-heading";
 import { categories, galleryImages, products } from "@/lib/data";
-import { PHONE_NUMBERS, phoneLink, whatsappLink } from "@/lib/utils";
+import { PHONE_NUMBERS, getOptimizedImageUrl, phoneLink, whatsappLink } from "@/lib/utils";
 
 const trust = [
   ["Quality Products", ShieldCheck],
@@ -44,11 +44,77 @@ const faqs = [
   ["Where are you located?", "Use the contact section to call or WhatsApp the store for the current location and directions in The Gambia."]
 ];
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://touraykunda.gm";
+const ifanLogoUrl = "https://www.ifan-solution.com/uploads/202235186/logo202203071000072921722.png";
+const ifanProducts = products.filter((product) => product.brand === "IFAN").slice(0, 3);
+
 export default function HomePage() {
   const featured = products.filter((product) => product.featured);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Organization", "HardwareStore", "Store"],
+        "@id": `${siteUrl}/#organization`,
+        name: "Touray Kunda Enterprise",
+        alternateName: "B.S.T Building Materials, Plumbing & Electricals",
+        url: siteUrl,
+        logo: `${siteUrl}/bst-logo.png`,
+        image: `${siteUrl}/bst-logo.png`,
+        telephone: PHONE_NUMBERS,
+        areaServed: ["The Gambia", "Banjul", "Kanifing", "Serrekunda", "Brikama"],
+        description:
+          "Touray Kunda Enterprise supplies building materials, plumbing supplies, pipes, fittings, sanitary ware, lighting and electrical products in The Gambia.",
+        sameAs: ["https://www.ifan-solution.com/"],
+        brand: [
+          {
+            "@type": "Brand",
+            name: "B.S.T Building Materials, Plumbing & Electricals"
+          },
+          {
+            "@type": "Brand",
+            name: "IFAN",
+            url: "https://www.ifan-solution.com/"
+          }
+        ],
+        contactPoint: PHONE_NUMBERS.map((phone) => ({
+          "@type": "ContactPoint",
+          telephone: phone,
+          contactType: "sales",
+          areaServed: "GM",
+          availableLanguage: ["English"]
+        }))
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: "Touray Kunda Enterprise",
+        inLanguage: "en",
+        potentialAction: {
+          "@type": "SearchAction",
+          target: `${siteUrl}/products?search={search_term_string}`,
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${siteUrl}/#faq`,
+        mainEntity: faqs.map(([question, answer]) => ({
+          "@type": "Question",
+          name: question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: answer
+          }
+        }))
+      }
+    ]
+  };
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <section className="diagonal-cut relative overflow-hidden bg-gradient-to-br from-[#041b44] via-primary to-[#0ea5e9] text-white">
         <div className="construction-grid absolute inset-0 opacity-80" />
         <div className="absolute -right-28 top-24 size-96 rounded-full bg-sky-300/20 blur-3xl" />
@@ -86,7 +152,7 @@ export default function HomePage() {
             <div className="relative ml-auto max-w-[620px] rounded-[2.4rem] border border-white/25 bg-white/12 p-4 shadow-2xl shadow-sky-950/35 backdrop-blur">
               <div className="relative min-h-[520px] overflow-hidden rounded-[2rem] bg-[#061b3b] md:min-h-[560px]">
                 <Image
-                  src={`${featured[0].imageUrl}?auto=format&fit=crop&w=1200&q=86`}
+                  src={getOptimizedImageUrl(featured[0].imageUrl, 1200, 86)}
                   alt="Modern bathroom and sanitary ware supplied by Touray Kunda Enterprise"
                   fill
                   sizes="(min-width: 1024px) 45vw, 100vw"
@@ -129,7 +195,7 @@ export default function HomePage() {
                   <div key={item.slug} className="grid grid-cols-[5.5rem_1fr] overflow-hidden rounded-[1.4rem] border border-white/35 bg-white text-primary shadow-2xl shadow-sky-950/20">
                     <div className="relative min-h-28">
                       <Image
-                        src={`${item.imageUrl}?auto=format&fit=crop&w=520&q=84`}
+                        src={getOptimizedImageUrl(item.imageUrl, 520, 84)}
                         alt={item.name}
                         fill
                         sizes="6rem"
@@ -207,6 +273,63 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section-shell py-20">
+        <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="rounded-[2rem] border border-sky-100 bg-white p-8 shadow-xl shadow-sky-900/8">
+            <Badge className="mb-5 border-sky-200 bg-sky-50 text-primary">Official Partner</Badge>
+            <h2 className="font-display text-4xl font-black tracking-[-0.05em] text-primary md:text-5xl">
+              Official IFAN Partner for Pipe & Plumbing Solutions
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">
+              Touray Kunda Enterprise is an official partner of IFAN. Customers can request IFAN-related pipe systems, fittings and plumbing materials alongside general building materials, sanitary ware, lighting and electrical supplies for projects across The Gambia.
+            </p>
+            <div className="mt-7 flex flex-wrap items-center gap-4 rounded-[1.5rem] border bg-sky-50 p-5">
+              <div className="relative h-16 w-40 shrink-0">
+                <Image src={ifanLogoUrl} alt="IFAN logo" fill sizes="160px" className="object-contain object-left" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="font-display text-2xl font-black text-primary">Partner brand on request</p>
+                <p className="mt-1 text-sm leading-6 text-slate-600">
+                  Ask for IFAN pipe and fitting options when sending your material list or project requirements.
+                </p>
+              </div>
+            </div>
+            <div className="mt-6 grid gap-3 sm:grid-cols-3">
+              {["IFAN pipe systems", "Project quantity support", "WhatsApp quote response"].map((item) => (
+                <div key={item} className="rounded-2xl border bg-white px-4 py-4 text-sm font-black text-primary shadow-sm">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {ifanProducts.map((product) => (
+              <div key={product.slug} className="group overflow-hidden rounded-[1.8rem] border border-sky-100 bg-white shadow-xl shadow-sky-900/8">
+                <div className="relative aspect-[4/4.2] overflow-hidden">
+                  <Image
+                    src={product.imageUrl}
+                    alt={`${product.name} by IFAN`}
+                    fill
+                    sizes="(min-width: 1024px) 22vw, 100vw"
+                    className="object-cover transition duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#041528]/65 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <Badge className="border-white/20 bg-white/90 text-primary">IFAN Product Line</Badge>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <p className="text-xs font-black uppercase tracking-[0.14em] text-sky-600">{product.spec}</p>
+                  <h3 className="mt-2 font-display text-2xl font-black tracking-tight text-primary">{product.name}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{product.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="relative overflow-hidden bg-[#f3f8fd] py-20">
         <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-sky-200/45 blur-3xl" />
         <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
@@ -261,7 +384,7 @@ export default function HomePage() {
                   return (
                     <div key={item.title} className={`group relative overflow-hidden rounded-[1.4rem] ${placement}`}>
                       <Image
-                        src={`${item.imageUrl}?auto=format&fit=crop&w=${index === 0 ? 1200 : 640}&q=84`}
+                        src={getOptimizedImageUrl(item.imageUrl, index === 0 ? 1200 : 640, 84)}
                         alt={item.title}
                         fill
                         sizes={index === 0 ? "(min-width: 1024px) 50vw, 100vw" : "(min-width: 1024px) 18vw, 50vw"}

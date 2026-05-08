@@ -7,7 +7,8 @@ import { PHONE_NUMBERS, phoneLink, whatsappLink } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Contact Touray Kunda Enterprise by phone or WhatsApp for building materials, plumbing, electricals and sanitary ware in The Gambia."
+  description:
+    "Contact Touray Kunda Enterprise by phone or WhatsApp for building materials, plumbing, IFAN pipe and fitting requests, electricals and sanitary ware in The Gambia."
 };
 
 export default function ContactPage() {

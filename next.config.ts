@@ -10,6 +10,18 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "images.unsplash.com"
+      },
+      {
+        protocol: "https",
+        hostname: "www.ifan-solution.com"
+      },
+      {
+        protocol: "https",
+        hostname: "ifan-solution.com"
+      },
+      {
+        protocol: "https",
+        hostname: "img01.v15cdn.com"
       }
     ]
   }
