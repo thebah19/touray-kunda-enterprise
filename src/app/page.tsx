@@ -82,10 +82,10 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-          <div className="relative min-h-[620px] lg:min-h-[680px]">
+          <div className="relative">
             <div className="absolute inset-x-8 bottom-3 top-10 rounded-[2.6rem] bg-sky-300/20 blur-3xl" />
             <div className="relative ml-auto max-w-[620px] rounded-[2.4rem] border border-white/25 bg-white/12 p-4 shadow-2xl shadow-sky-950/35 backdrop-blur">
-              <div className="relative min-h-[560px] overflow-hidden rounded-[2rem] bg-[#061b3b]">
+              <div className="relative min-h-[520px] overflow-hidden rounded-[2rem] bg-[#061b3b] md:min-h-[560px]">
                 <Image
                   src={`${featured[0].imageUrl}?auto=format&fit=crop&w=1200&q=86`}
                   alt="Modern bathroom and sanitary ware supplied by Touray Kunda Enterprise"
@@ -103,8 +103,8 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                <div className="absolute bottom-5 left-5 right-5 rounded-[1.7rem] border border-white/20 bg-white/92 p-5 text-primary shadow-2xl backdrop-blur">
-                  <p className="font-display text-3xl font-black tracking-tight">Build your quote list fast.</p>
+                <div className="absolute bottom-5 left-5 right-5 rounded-[1.7rem] border border-white/20 bg-white/94 p-5 text-primary shadow-2xl backdrop-blur md:right-auto md:max-w-[29rem]">
+                  <p className="font-display text-2xl font-black tracking-tight md:text-3xl">Build your quote list fast.</p>
                   <p className="mt-2 max-w-md text-sm font-bold leading-6 text-slate-600">
                     Choose products, send quantities on WhatsApp, and confirm price and availability before buying.
                   </p>
@@ -119,39 +119,34 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="absolute -left-2 top-24 hidden w-48 overflow-hidden rounded-[1.5rem] border border-white/25 bg-white text-primary shadow-2xl shadow-sky-950/25 md:block">
-              <div className="relative h-36">
-                <Image
-                  src={`${featured[2].imageUrl}?auto=format&fit=crop&w=520&q=84`}
-                  alt={featured[2].name}
-                  fill
-                  sizes="12rem"
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-4">
-                <p className="text-xs font-black uppercase tracking-[0.16em] text-sky-600">Popular</p>
-                <p className="mt-1 font-display text-lg font-black">{featured[2].name}</p>
-              </div>
+            <div className="relative z-10 mx-auto -mt-8 grid max-w-[560px] gap-3 px-4 sm:grid-cols-2">
+              {[
+                ["Popular", featured[2]],
+                ["In stock", featured[5]]
+              ].map(([label, product]) => {
+                const item = product as (typeof featured)[number];
+
+                return (
+                  <div key={item.slug} className="grid grid-cols-[5.5rem_1fr] overflow-hidden rounded-[1.4rem] border border-white/35 bg-white text-primary shadow-2xl shadow-sky-950/20">
+                    <div className="relative min-h-28">
+                      <Image
+                        src={`${item.imageUrl}?auto=format&fit=crop&w=520&q=84`}
+                        alt={item.name}
+                        fill
+                        sizes="6rem"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <p className="text-xs font-black uppercase tracking-[0.16em] text-sky-600">{label as string}</p>
+                      <p className="mt-1 font-display text-lg font-black leading-tight">{item.name}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
-            <div className="absolute -right-2 bottom-20 hidden w-52 overflow-hidden rounded-[1.5rem] border border-white/25 bg-white text-primary shadow-2xl shadow-sky-950/25 md:block">
-              <div className="relative h-32">
-                <Image
-                  src={`${featured[5].imageUrl}?auto=format&fit=crop&w=520&q=84`}
-                  alt={featured[5].name}
-                  fill
-                  sizes="13rem"
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-4">
-                <p className="text-xs font-black uppercase tracking-[0.16em] text-sky-600">In stock</p>
-                <p className="mt-1 font-display text-lg font-black">{featured[5].name}</p>
-              </div>
-            </div>
-
-            <div className="absolute -bottom-4 left-10 rounded-3xl bg-white p-5 text-primary shadow-2xl">
+            <div className="relative z-10 ml-6 mt-4 inline-block rounded-3xl bg-white p-5 text-primary shadow-2xl">
               <p className="text-3xl font-black">+220</p>
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-sky-600">Local support</p>
             </div>
