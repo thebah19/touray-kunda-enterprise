@@ -1,12 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2, HardHat, Home, MessageCircle, Plug, ShieldCheck, ShoppingBag, Store, Wrench } from "lucide-react";
+import { CheckCircle2, HardHat, Home, MessageCircle, Plug, ShieldCheck, ShoppingBag, Store, Wrench } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CategoryCard } from "@/components/product/category-card";
-import { ProductCard } from "@/components/product/product-card";
 import { QuoteForm } from "@/components/site/quote-form";
 import { SectionHeading } from "@/components/site/section-heading";
 import { categories, galleryImages, products } from "@/lib/data";
@@ -166,24 +165,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-muted py-20">
-        <div className="section-shell">
-          <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
-            <SectionHeading title="Popular Products" copy="Browse common products and add items to a quote list. Prices and availability are confirmed by the team." align="left" className="mb-0" />
-            <Button asChild variant="outline">
-              <Link href="/products">View All Products <ArrowRight data-icon="inline-end" /></Link>
-            </Button>
-          </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {featured.slice(0, 9).map((product) => (
-              <ProductCard key={product.slug} product={product} />
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="section-shell py-20">
-        <SectionHeading title="Request a Quote" copy="Build a material list, add quantities, and request current prices without online payment." />
+        <div className="mb-10 grid gap-5 md:grid-cols-3">
+          {[
+            ["Send your list", "Write the materials, sizes, types, brands, or photos of what you need."],
+            ["Add quantities", "Include pieces, cartons, meters, bags, sets, or project estimates."],
+            ["Get confirmation", "The team confirms price, availability, alternatives, and delivery options."]
+          ].map(([title, copy]) => (
+            <div key={title} className="rounded-[1.5rem] border bg-white p-6 shadow-sm">
+              <CheckCircle2 className="mb-4 size-7 text-sky-500" />
+              <h3 className="font-display text-xl font-black text-primary">{title}</h3>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">{copy}</p>
+            </div>
+          ))}
+        </div>
+        <SectionHeading
+          title="Request a Quote"
+          copy="List the building materials, plumbing items, electrical supplies, lighting, sanitary ware, pipes, fittings, tools, or finishing products you need. You do not need to select individual products online."
+        />
         <QuoteForm />
       </section>
 
