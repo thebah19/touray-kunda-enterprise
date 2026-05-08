@@ -1,0 +1,240 @@
+import Link from "next/link";
+import { ArrowRight, CheckCircle2, HardHat, Home, MessageCircle, Plug, ShieldCheck, ShoppingBag, Store, Wrench } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { CategoryCard } from "@/components/product/category-card";
+import { ProductArt } from "@/components/product/product-art";
+import { ProductCard } from "@/components/product/product-card";
+import { QuoteForm } from "@/components/site/quote-form";
+import { SectionHeading } from "@/components/site/section-heading";
+import { categories, galleryImages, products } from "@/lib/data";
+import { PHONE_NUMBERS, phoneLink, whatsappLink } from "@/lib/utils";
+
+const trust = [
+  ["Quality Products", ShieldCheck],
+  ["Fast Response", MessageCircle],
+  ["Contractor Friendly", HardHat],
+  ["Local Supplier", Store]
+];
+
+const buyers = [
+  ["For Homeowners", Home, "Bathroom upgrades, lighting, repairs and home building material needs."],
+  ["For Contractors", HardHat, "Project quantities, fast quote support and broad product sourcing."],
+  ["For Plumbers", Wrench, "Pipes, fittings, mixers, sanitary ware and installation essentials."],
+  ["For Electricians", Plug, "Switches, sockets, cables, breakers and lighting products."],
+  ["For Hardware Buyers", ShoppingBag, "Useful stock for shops and material buyers across The Gambia."]
+];
+
+const reasons = [
+  "Wide range of building, plumbing, and electrical products",
+  "Quality materials for residential and commercial projects",
+  "Easy WhatsApp ordering",
+  "Fast quote response",
+  "Helpful product guidance",
+  "Trusted local supplier"
+];
+
+const faqs = [
+  ["Do you sell plumbing and electrical materials?", "Yes. Touray Kunda Enterprise supplies plumbing products, pipes, fittings, electrical sockets, switches, breakers, lighting and related construction materials."],
+  ["Can I request prices through WhatsApp?", "Yes. Use any WhatsApp button on the website to request price and availability quickly."],
+  ["Do you supply contractors?", "Yes. We support homeowners, contractors, plumbers, electricians, shop owners and construction buyers."],
+  ["Can I send a full material list?", "Yes. Add products to the quote list or paste your full list into the quote form or WhatsApp message."],
+  ["Do you offer delivery?", "Delivery can be requested in the quote form. The team will confirm availability and delivery details."],
+  ["Where are you located?", "Use the contact section to call or WhatsApp the store for the current location and directions in The Gambia."]
+];
+
+export default function HomePage() {
+  const featured = products.filter((product) => product.featured);
+
+  return (
+    <>
+      <section className="diagonal-cut relative overflow-hidden bg-gradient-to-br from-[#041b44] via-primary to-[#0ea5e9] text-white">
+        <div className="construction-grid absolute inset-0 opacity-80" />
+        <div className="absolute -right-28 top-24 size-96 rounded-full bg-sky-300/20 blur-3xl" />
+        <div className="absolute left-1/2 top-0 h-full w-1/2 -skew-x-12 bg-white/8" />
+        <div className="section-shell relative grid min-h-[720px] items-center gap-10 py-20 lg:grid-cols-[1fr_0.9fr]">
+          <div className="max-w-3xl">
+            <h1 className="font-display text-4xl font-black leading-[0.98] tracking-[-0.06em] md:text-6xl lg:text-7xl">
+              Quality Building Materials, Plumbing & Electrical Supplies
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-sky-50 md:text-xl">
+              Touray Kunda Enterprise supplies reliable construction, plumbing, sanitary ware, lighting, and electrical products for homes, businesses, and building projects across The Gambia.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button asChild size="lg" variant="red">
+                <Link href="/request-quote">Request a Quote</Link>
+              </Button>
+              <Button asChild size="lg" variant="secondary">
+                <a href={whatsappLink("Hello Touray Kunda Enterprise, I would like to request a quote.")}>Chat on WhatsApp</a>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/10 text-white hover:bg-white/20">
+                <Link href="/products">View Products</Link>
+              </Button>
+            </div>
+            <div className="mt-9 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {trust.map(([label, Icon]) => (
+                <div key={label as string} className="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur">
+                  <Icon className="mb-3 size-6 text-sky-200" />
+                  <p className="text-sm font-black">{label as string}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="relative">
+            <div className="rounded-[2.2rem] border border-white/20 bg-white/12 p-4 shadow-2xl shadow-sky-950/35 backdrop-blur">
+              <div className="grid grid-cols-2 gap-3">
+                {featured.slice(0, 6).map((product, index) => (
+                  <ProductArt
+                    key={product.slug}
+                    category={product.category}
+                    label={product.name}
+                    imageUrl={product.imageUrl}
+                    className={index === 0 ? "col-span-2 aspect-[2/1]" : "aspect-square"}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="absolute -bottom-6 left-8 rounded-3xl bg-white p-5 text-primary shadow-2xl">
+              <p className="text-3xl font-black">+220</p>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-sky-600">Local support</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-shell py-20">
+        <SectionHeading
+          title="Everything You Need for Your Building Project"
+          copy="From bathroom fittings and water closets to pipes, switches, lighting, and essential building materials, we make it easier to source the products you need quickly and confidently."
+        />
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {categories.map((category) => (
+            <CategoryCard key={category.slug} category={category} />
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-muted py-20">
+        <div className="section-shell">
+          <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+            <SectionHeading title="Popular Products" copy="Browse common products and add items to a quote list. Prices and availability are confirmed by the team." align="left" className="mb-0" />
+            <Button asChild variant="outline">
+              <Link href="/products">View All Products <ArrowRight data-icon="inline-end" /></Link>
+            </Button>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {featured.slice(0, 9).map((product) => (
+              <ProductCard key={product.slug} product={product} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-shell py-20">
+        <SectionHeading title="Request a Quote" copy="Build a material list, add quantities, and request current prices without online payment." />
+        <QuoteForm />
+      </section>
+
+      <section className="bg-primary py-20 text-white">
+        <div className="section-shell">
+          <SectionHeading
+            title="Supplying Homes, Shops, Contractors & Construction Projects"
+            copy="Whether you are building a new home, renovating a bathroom, wiring a shop, or supplying a construction site, Touray Kunda Enterprise provides reliable materials and quick support."
+            tone="dark"
+          />
+          <div className="grid gap-4 md:grid-cols-5">
+            {buyers.map(([title, Icon, copy]) => (
+              <Card key={title as string} className="border-white/10 bg-white/10 text-white backdrop-blur">
+                <CardContent className="p-5">
+                  <Icon className="mb-4 size-8 text-sky-200" />
+                  <h3 className="font-display text-lg font-black">{title as string}</h3>
+                  <p className="mt-2 text-sm leading-6 text-sky-100">{copy as string}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-shell grid gap-10 py-20 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <SectionHeading title="Why Customers Choose Touray Kunda" align="left" />
+          <div className="flex flex-col gap-3">
+            {reasons.map((reason) => (
+              <div key={reason} className="flex items-center gap-3 rounded-2xl border bg-white p-4 shadow-sm">
+                <CheckCircle2 className="size-6 text-sky-500" />
+                <p className="font-bold">{reason}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          {galleryImages.map((item, index) => (
+            <div key={item.title} className={index % 3 === 0 ? "row-span-2" : ""}>
+              <ProductArt category={item.category} label={item.title} imageUrl={item.imageUrl} className="h-full min-h-44" />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-muted py-20">
+        <div className="section-shell grid gap-8 lg:grid-cols-[1fr_0.8fr]">
+          <div className="rounded-[2rem] bg-white p-8 shadow-xl shadow-sky-900/8">
+            <SectionHeading title="Visit or Contact Touray Kunda Enterprise" align="left" className="mb-6" />
+            <div className="grid gap-3 sm:grid-cols-3">
+              {PHONE_NUMBERS.map((phone) => (
+                <a key={phone} href={phoneLink(phone)} className="rounded-2xl border bg-sky-50 p-4 text-center font-black text-primary">
+                  {phone}
+                </a>
+              ))}
+            </div>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <Button asChild variant="red">
+                <a href={whatsappLink()}>WhatsApp Button</a>
+              </Button>
+              <Button asChild variant="outline">
+                <a href={phoneLink(PHONE_NUMBERS[0])}>Call Button</a>
+              </Button>
+            </div>
+            <p className="mt-6 text-sm leading-7 text-muted-foreground">Location placeholder: The Gambia. Opening hours placeholder: Contact store for current hours.</p>
+          </div>
+          <div className="grid min-h-80 place-items-center rounded-[2rem] border border-sky-100 bg-gradient-to-br from-primary to-sky-500 p-8 text-center text-white shadow-xl">
+            <div>
+              <Store className="mx-auto mb-4 size-12" />
+              <h3 className="font-display text-3xl font-black">Google Map Placeholder</h3>
+              <p className="mt-3 text-sky-100">Embed the verified store map here when the business location is confirmed.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-shell py-20">
+        <SectionHeading title="What Customers Say" />
+        <div className="grid gap-5 md:grid-cols-3">
+          {["Quality products and fast response.", "Reliable supplier for plumbing and electrical materials.", "Good place for bathroom and construction materials."].map((quote) => (
+            <Card key={quote}>
+              <CardContent className="p-7">
+                <Badge className="mb-5">Customer Feedback</Badge>
+                <p className="text-lg font-bold leading-8">“{quote}”</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-shell pb-20">
+        <SectionHeading title="Frequently Asked Questions" />
+        <Accordion type="single" collapsible className="mx-auto max-w-3xl rounded-[1.5rem] border bg-white px-6 shadow-sm">
+          {faqs.map(([question, answer]) => (
+            <AccordionItem key={question} value={question}>
+              <AccordionTrigger>{question}</AccordionTrigger>
+              <AccordionContent>{answer}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </section>
+    </>
+  );
+}

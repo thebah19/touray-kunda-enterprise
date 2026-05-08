@@ -1,0 +1,17 @@
+{
+  "name": "Touray Kunda Enterprise",
+  "short_name": "Touray Kunda",
+  "description": "Building materials, plumbing, electricals, lighting and sanitary ware supplier in The Gambia.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#083b86",
+  "icons": [
+    {
+      "src": "/bst-logo.png",
+      "sizes": "638x638",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
