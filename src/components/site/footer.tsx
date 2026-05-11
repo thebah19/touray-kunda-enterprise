@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Logo } from "@/components/site/logo";
+import Image from "next/image";
 import { categories } from "@/lib/data";
 import { PHONE_NUMBERS, whatsappLink } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -9,7 +9,19 @@ export function Footer() {
     <footer className="bg-[#041528] text-white">
       <div className="section-shell grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div className="flex flex-col gap-5">
-          <Logo />
+          <Link href="/" className="group flex items-center gap-4" aria-label="Touray Kunda Enterprise home">
+            <span className="grid size-16 shrink-0 place-items-center overflow-hidden rounded-2xl bg-white shadow-lg shadow-sky-950/30 ring-1 ring-white/15">
+              <Image src="/tke-logo.png" alt="B.S.T Building Materials Plumbing & Electricals logo" width={64} height={64} className="size-full object-contain p-1.5" />
+            </span>
+            <span className="leading-none">
+              <span className="block font-display text-2xl font-black tracking-[-0.05em] text-white">
+                Touray Kunda
+              </span>
+              <span className="mt-1 block text-sm font-extrabold uppercase tracking-[0.26em] text-sky-300">
+                Enterprise
+              </span>
+            </span>
+          </Link>
           <p className="max-w-sm text-sm leading-7 text-slate-300">
             Touray Kunda Enterprise supplies building materials, plumbing, sanitary ware, lighting and electrical
             products for homes, shops, contractors and construction projects across The Gambia.
