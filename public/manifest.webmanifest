@@ -8,7 +8,7 @@
   "theme_color": "#083b86",
   "icons": [
     {
-      "src": "/bst-logo.png",
+      "src": "/tke-logo.png",
       "sizes": "638x638",
       "type": "image/png",
       "purpose": "any maskable"

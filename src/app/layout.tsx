@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     locale: "en_GM",
     images: [
       {
-        url: "/bst-logo.png",
+        url: "/tke-logo.png",
         width: 638,
         height: 638,
         alt: "Touray Kunda Enterprise BST logo"
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Touray Kunda Enterprise | Building Materials in The Gambia",
     description: "Building materials, plumbing supplies, pipes, fittings, sanitary ware, lighting and electrical products in The Gambia.",
-    images: ["/bst-logo.png"]
+    images: ["/tke-logo.png"]
   },
   alternates: {
     canonical: "/"
@@ -76,8 +76,8 @@ export const metadata: Metadata = {
     }
   },
   icons: {
-    icon: "/bst-logo.png",
-    apple: "/bst-logo.png"
+    icon: "/tke-logo.png",
+    apple: "/tke-logo.png"
   },
   manifest: "/manifest.webmanifest"
 };

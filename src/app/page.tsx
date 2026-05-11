@@ -59,8 +59,8 @@ export default function HomePage() {
         name: "Touray Kunda Enterprise",
         alternateName: "B.S.T Building Materials, Plumbing & Electricals",
         url: siteUrl,
-        logo: `${siteUrl}/bst-logo.png`,
-        image: `${siteUrl}/bst-logo.png`,
+        logo: `${siteUrl}/tke-logo.png`,
+        image: `${siteUrl}/tke-logo.png`,
         telephone: PHONE_NUMBERS,
         areaServed: ["The Gambia", "Banjul", "Kanifing", "Serrekunda", "Brikama"],
         description:
