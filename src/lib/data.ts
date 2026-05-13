@@ -60,7 +60,7 @@ export const categories: Category[] = [
     name: "Plumbing Supplies",
     description: "Reliable parts for water systems, bathrooms and maintenance work.",
     imageHint: "valves, taps, pipe joints",
-    imageUrl: "https://www.ifan-solution.com/uploads/202535186/small/ifan-white-ppr-fittings1b76e019-caeb-4caf-bb89-ff64f78be6e2.webp",
+    imageUrl: "/catalog/tke/spring-kitchen-faucet.png",
     icon: "plumbing"
   },
   {
@@ -68,7 +68,7 @@ export const categories: Category[] = [
     name: "Toilets & Sanitary Ware",
     description: "Water closets, basins, bathroom sets and sanitary accessories.",
     imageHint: "toilets and sinks",
-    imageUrl: "https://images.unsplash.com/photo-1721825154501-a75ca17ed1c4",
+    imageUrl: "/catalog/sanitary/vanity-bathroom-set.jpeg",
     icon: "sanitary"
   },
   {
@@ -84,7 +84,7 @@ export const categories: Category[] = [
     name: "Electrical Supplies",
     description: "Switches, sockets, breakers, cables and wiring accessories.",
     imageHint: "switches and sockets",
-    imageUrl: "https://images.unsplash.com/photo-1484024091473-858a1e7ece52",
+    imageUrl: "/catalog/tke/junction-box-white.png",
     icon: "electrical"
   },
   {
@@ -92,7 +92,7 @@ export const categories: Category[] = [
     name: "Lighting Solutions",
     description: "LED panels, bulbs, fittings and efficient lighting products.",
     imageHint: "LED lighting",
-    imageUrl: "https://images.unsplash.com/photo-1545164415-0fae860defbd",
+    imageUrl: "/catalog/tke/ceiling-light-crystal.png",
     icon: "lighting"
   },
   {
@@ -108,7 +108,7 @@ export const categories: Category[] = [
     name: "Tools & Accessories",
     description: "Practical tools and accessories for installation and construction.",
     imageHint: "construction tools",
-    imageUrl: "https://images.unsplash.com/photo-1759200165738-6366977a73c6",
+    imageUrl: "/catalog/tke/electrical-tape.png",
     icon: "tools"
   }
 ];
@@ -116,36 +116,36 @@ export const categories: Category[] = [
 export const products: Product[] = [
   {
     slug: "modern-water-closet",
-    name: "Modern Water Closet",
+    name: "Bathroom Vanity Cabinet",
     category: "toilets-sanitary-ware",
-    spec: "Close-coupled ceramic WC with cistern",
-    description: "A clean modern water closet suitable for residential and commercial bathrooms.",
+    spec: "Wall-mounted vanity with mirror storage",
+    description: "A modern vanity cabinet set suitable for home bathrooms, guest washrooms and upgrade projects.",
     availability: "Available",
-    imageUrl: "https://images.unsplash.com/photo-1721825154501-a75ca17ed1c4",
+    imageUrl: "/catalog/sanitary/vanity-open-shelf.jpeg",
     featured: true,
-    specs: ["Ceramic finish", "Includes cistern", "Modern bathroom style", "Ask for current models"]
+    specs: ["Wall-mounted style", "Mirror storage", "Modern bathroom finish", "Ask for available sizes"]
   },
   {
     slug: "pedestal-sink",
-    name: "Pedestal Sink",
+    name: "Mirror Cabinet Vanity Set",
     category: "toilets-sanitary-ware",
-    spec: "White ceramic basin with pedestal",
-    description: "A practical sink set for bathrooms, guest toilets and renovation projects.",
+    spec: "Vanity basin with mirror cabinet",
+    description: "A clean vanity set for bathrooms, guest wash areas and renovation projects.",
     availability: "Available",
-    imageUrl: "https://images.unsplash.com/photo-1721394739600-e474156df793",
+    imageUrl: "/catalog/sanitary/vanity-mirror-cabinet.jpeg",
     featured: true,
-    specs: ["White ceramic", "Pedestal support", "Mixer compatible", "Multiple sizes available"]
+    specs: ["Mirror cabinet included", "Vanity basin style", "Mixer compatible", "Multiple sizes available"]
   },
   {
     slug: "shower-mixer-set",
-    name: "Shower Mixer Set",
+    name: "Bathroom Spray Set",
     category: "plumbing-supplies",
-    spec: "Chrome mixer with shower accessories",
-    description: "Chrome shower mixer set for bathroom installations and upgrades.",
+    spec: "Chrome handheld spray set with hose",
+    description: "A practical bathroom spray set for plumbing installations, wash areas and bathroom upgrades.",
     availability: "Available",
-    imageUrl: "https://images.unsplash.com/photo-1564518823771-494a12735793",
+    imageUrl: "/catalog/tke/toilet-spray-set.png",
     featured: true,
-    specs: ["Chrome finish", "Wall mounted", "Bathroom installation", "Ask for matching fittings"]
+    specs: ["Chrome finish", "Flexible hose included", "Bathroom installation", "Ask for matching fittings"]
   },
   {
     slug: "pvc-pipes",
@@ -172,80 +172,83 @@ export const products: Product[] = [
   },
   {
     slug: "water-line-fittings",
-    name: "Water Line Fittings",
+    name: "Basin & Kitchen Faucets",
     category: "plumbing-supplies",
-    spec: "General fittings for residential and project plumbing",
-    description: "Reliable plumbing fittings supplied for home builds, maintenance work and construction projects.",
+    spec: "Tap and faucet options for homes and projects",
+    description: "Reliable faucet options supplied for home builds, bathroom upgrades, kitchens and maintenance work.",
     availability: "Available",
-    imageUrl: "https://www.ifan-solution.com/uploads/202535186/small/ifan-white-ppr-fittingsee572d6d-a567-4f7c-a8a6-f219c0752d84.webp",
-    brand: "IFAN",
-    specs: ["General plumbing use", "Useful for repairs and new work", "Sizing options available", "Ask for matching pipe systems"]
+    imageUrl: "/catalog/tke/high-neck-kitchen-faucet.png",
+    specs: ["General plumbing use", "Useful for kitchens and wash areas", "Multiple styles available", "Ask for matching accessories"]
   },
   {
     slug: "electrical-sockets",
-    name: "Electrical Sockets",
+    name: "YAKI Switch & Socket Set",
     category: "electrical-supplies",
-    spec: "Single, double and switched options",
-    description: "Electrical sockets for homes, shops and commercial wiring projects.",
+    spec: "Switches and universal socket options",
+    description: "YAKI switch and socket options for homes, shops and commercial wiring projects.",
     availability: "Available",
-    imageUrl: "https://images.unsplash.com/photo-1484024091473-858a1e7ece52",
+    imageUrl: "/catalog/electrical/yaki-switch-socket.jpeg",
+    brand: "YAKI",
     featured: true,
-    specs: ["Single and double options", "Modern face plates", "Contractor quantities", "Switches also available"]
+    specs: ["Single and double options", "Modern face plates", "Contractor quantities", "Matching switches available"]
   },
   {
     slug: "led-panel-lights",
     name: "LED Panel Lights",
     category: "lighting-solutions",
-    spec: "Energy-efficient ceiling light panels",
-    description: "Bright LED panels for shops, offices, homes and commercial interiors.",
+    spec: "YAKI LED panel light range",
+    description: "Bright YAKI LED panel lights for shops, offices, homes and commercial interiors.",
     availability: "Available",
-    imageUrl: "https://images.unsplash.com/photo-1545164415-0fae860defbd",
+    imageUrl: "/catalog/tke/ceiling-light-crystal.png",
+    brand: "YAKI",
     featured: true,
     specs: ["Energy efficient", "Ceiling mount", "Multiple wattages", "Clean white light"]
   },
   {
     slug: "wash-basin",
-    name: "Wash Basin",
+    name: "Vanity Wash Basin Set",
     category: "toilets-sanitary-ware",
-    spec: "Countertop and wall-hung options",
-    description: "Stylish wash basins for bathroom projects and finishing work.",
+    spec: "Vanity basin with mirror shelf options",
+    description: "Stylish vanity wash basin sets for bathroom projects and finishing work.",
     availability: "Available",
-    imageUrl: "https://images.unsplash.com/photo-1721394739600-e474156df793",
+    imageUrl: "/catalog/sanitary/vanity-shelf-mirror.jpeg",
     featured: true,
-    specs: ["Modern profiles", "White ceramic", "Tap compatible", "Several styles"]
+    specs: ["Modern profiles", "Vanity cabinet style", "Tap compatible", "Several styles"]
   },
   {
     slug: "bathroom-accessories",
-    name: "Bathroom Accessories",
+    name: "Chrome Basin Faucet",
     category: "toilets-sanitary-ware",
-    spec: "Towel rails, holders and fittings",
-    description: "Finishing accessories that complete bathroom installations.",
-    availability: "Request availability",
-    imageUrl: "https://images.unsplash.com/photo-1564518823771-494a12735793",
+    spec: "Single-lever basin mixer tap",
+    description: "A clean chrome basin faucet for bathroom vanity installations and finishing work.",
+    availability: "Available",
+    imageUrl: "/catalog/plumbing/chrome-basin-faucet.jpeg",
     featured: true,
-    specs: ["Chrome options", "Wall mounted", "Matching sets", "Ideal for renovations"]
+    specs: ["Chrome finish", "Single-lever control", "Vanity compatible", "Ideal for renovations"]
   },
   {
     slug: "switches-breakers",
-    name: "Switches & Breakers",
+    name: "Circuit Breakers & Protection",
     category: "electrical-supplies",
-    spec: "Switch plates, MCBs and wiring protection",
-    description: "Essential electrical control and protection products for safe installations.",
+    spec: "Protection devices and circuit control",
+    description: "YAKI protection devices for safer electrical installations, boards and power control.",
     availability: "Available",
-    imageUrl: "https://images.unsplash.com/photo-1508920291026-c344bbfca1ab",
+    imageUrl: "/catalog/tke/mini-breaker-box.png",
+    brand: "YAKI",
     featured: true,
     specs: ["Switch plates", "Circuit breakers", "Wiring accessories", "Ask for ratings"]
   },
   {
     slug: "construction-tools",
-    name: "Construction Tools",
+    name: "Electrical Tape & Accessories",
     category: "tools-accessories",
-    spec: "Hand tools and site accessories",
-    description: "Useful construction and installation tools for builders and tradespeople.",
-    availability: "Request availability",
-    imageUrl: "https://images.unsplash.com/photo-1759200165738-6366977a73c6",
+    spec: "PVC insulation tape and accessory items",
+    description: "Useful electrical accessories for installers, electricians, repairs and site work.",
+    availability: "Available",
+    imageUrl: "/catalog/tke/electrical-tape.png",
+    brand: "YAKI",
     featured: true,
-    specs: ["Hand tools", "Installation accessories", "Builder friendly", "Stock changes often"]
+    specs: ["PVC electrical tape", "Useful for installations", "Trade-friendly stock", "Multiple colors available"]
   },
   {
     slug: "tile-finishing-set",
@@ -259,13 +262,14 @@ export const products: Product[] = [
   },
   {
     slug: "electrical-cable-roll",
-    name: "Electrical Cable Roll",
+    name: "Corrugated Conduit with Draw Wire",
     category: "electrical-supplies",
-    spec: "Cable rolls for wiring projects",
-    description: "Electrical cable options for residential and commercial wiring.",
+    spec: "Flexible conduit for cable routing",
+    description: "Flexible corrugated conduit with draw wire for residential and commercial wiring runs.",
     availability: "Available",
-    imageUrl: "https://images.unsplash.com/photo-1508920291026-c344bbfca1ab",
-    specs: ["Multiple sizes", "Wiring projects", "Bulk supply", "Ask for current ratings"]
+    imageUrl: "/catalog/tke/corrugated-conduit.png",
+    brand: "YAKI",
+    specs: ["Multiple sizes", "Wiring projects", "Bulk supply", "Useful for cable protection"]
   }
 ];
 
@@ -273,17 +277,17 @@ export const galleryImages = [
   {
     title: "Bathroom Fixtures",
     category: "toilets-sanitary-ware",
-    imageUrl: "https://images.unsplash.com/photo-1721825154501-a75ca17ed1c4"
+    imageUrl: "/catalog/sanitary/vanity-bathroom-set.jpeg"
   },
   {
     title: "Sink Sets",
     category: "toilets-sanitary-ware",
-    imageUrl: "https://images.unsplash.com/photo-1721394739600-e474156df793"
+    imageUrl: "/catalog/sanitary/vanity-open-shelf.jpeg"
   },
   {
     title: "Pipes & Plumbing",
     category: "pipes-fittings",
-    imageUrl: "https://www.ifan-solution.com/uploads/202235186/small/ppr-pipe-for-hot-and-cold-water58357910166.jpg"
+    imageUrl: "/catalog/tke/spring-kitchen-faucet.png"
   },
   {
     title: "Construction Materials",
@@ -293,17 +297,17 @@ export const galleryImages = [
   {
     title: "Electrical Fittings",
     category: "electrical-supplies",
-    imageUrl: "https://images.unsplash.com/photo-1484024091473-858a1e7ece52"
+    imageUrl: "/catalog/tke/junction-box-white.png"
   },
   {
     title: "Lighting Products",
     category: "lighting-solutions",
-    imageUrl: "https://images.unsplash.com/photo-1545164415-0fae860defbd"
+    imageUrl: "/catalog/tke/ceiling-light-crystal.png"
   },
   {
     title: "Tools & Hardware",
     category: "tools-accessories",
-    imageUrl: "https://images.unsplash.com/photo-1759200165738-6366977a73c6"
+    imageUrl: "/catalog/tke/electrical-tape.png"
   },
   {
     title: "Tiles & Finishing",
