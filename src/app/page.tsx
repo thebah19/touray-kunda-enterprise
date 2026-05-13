@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CategoryCard } from "@/components/product/category-card";
 import { QuoteForm } from "@/components/site/quote-form";
 import { SectionHeading } from "@/components/site/section-heading";
-import { categories, galleryImages, products } from "@/lib/data";
+import { categories, products } from "@/lib/data";
 import { PHONE_NUMBERS, getOptimizedImageUrl, phoneLink, whatsappLink } from "@/lib/utils";
 
 const trust = [
@@ -24,15 +24,6 @@ const buyers = [
   ["For Plumbers", Wrench, "Pipes, fittings, mixers, sanitary ware and installation essentials."],
   ["For Electricians", Plug, "Switches, sockets, cables, breakers and lighting products."],
   ["For Hardware Buyers", ShoppingBag, "Useful stock for shops and material buyers across The Gambia."]
-];
-
-const reasons = [
-  "Wide range of building, plumbing, and electrical products",
-  "Quality materials for residential and commercial projects",
-  "Easy WhatsApp ordering",
-  "Fast quote response",
-  "Helpful product guidance",
-  "Trusted local supplier"
 ];
 
 const faqs = [
@@ -211,13 +202,9 @@ export default function HomePage() {
               })}
             </div>
 
-            <div className="relative z-10 ml-6 mt-4 inline-block rounded-3xl bg-white p-5 text-primary shadow-2xl">
-              <p className="text-3xl font-black">+220</p>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-sky-600">Local support</p>
-            </div>
-          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       <section className="section-shell py-20">
         <SectionHeading
@@ -274,137 +261,58 @@ export default function HomePage() {
       </section>
 
       <section className="section-shell py-20">
-        <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="rounded-[2rem] border border-sky-100 bg-white p-8 shadow-xl shadow-sky-900/8">
-            <Badge className="mb-5 border-sky-200 bg-sky-50 text-primary">Official Partner</Badge>
-            <h2 className="font-display text-4xl font-black tracking-[-0.05em] text-primary md:text-5xl">
-              Official IFAN Partner for Pipe & Plumbing Solutions
-            </h2>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">
-              Touray Kunda Enterprise is an official partner of IFAN. Customers can request IFAN-related pipe systems, fittings and plumbing materials alongside general building materials, sanitary ware, lighting and electrical supplies for projects across The Gambia.
-            </p>
-            <div className="mt-7 flex flex-wrap items-center gap-4 rounded-[1.5rem] border bg-sky-50 p-5">
-              <div className="relative h-16 w-40 shrink-0">
-                <Image src={ifanLogoUrl} alt="IFAN logo" fill sizes="160px" className="object-contain object-left" />
+        <div className="rounded-[2rem] border border-sky-100 bg-gradient-to-br from-[#eef7ff] via-white to-[#dff0ff] p-6 shadow-xl shadow-sky-900/8 md:p-8">
+          <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div>
+              <Badge className="mb-5 border-sky-200 bg-sky-50 text-primary">Official Partner</Badge>
+              <h2 className="font-display text-4xl font-black tracking-[-0.05em] text-primary md:text-5xl">
+                Official IFAN Partner for Quality Pipe & Fitting Solutions
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">
+                Touray Kunda Enterprise supplies IFAN pipe systems, fittings and plumbing materials for homes, shops, contractors and project buyers across The Gambia.
+              </p>
+              <div className="mt-7 flex flex-wrap items-center gap-4 rounded-[1.5rem] border border-sky-100 bg-white/80 p-5">
+                <div className="relative h-16 w-40 shrink-0">
+                  <Image src={ifanLogoUrl} alt="IFAN logo" fill sizes="160px" className="object-contain object-left" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="font-display text-2xl font-black text-primary">Trusted IFAN supply</p>
+                  <p className="mt-1 text-sm leading-6 text-slate-600">
+                    Ask for IFAN pipe and fitting options when sending your material list or project requirements.
+                  </p>
+                </div>
               </div>
-              <div className="min-w-0 flex-1">
-                <p className="font-display text-2xl font-black text-primary">Partner brand on request</p>
-                <p className="mt-1 text-sm leading-6 text-slate-600">
-                  Ask for IFAN pipe and fitting options when sending your material list or project requirements.
-                </p>
+              <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                {["IFAN pipe systems", "Bulk supply support", "Fast quote response"].map((item) => (
+                  <div key={item} className="rounded-2xl border bg-white px-4 py-4 text-sm font-black text-primary shadow-sm">
+                    {item}
+                  </div>
+                ))}
               </div>
             </div>
-            <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              {["IFAN pipe systems", "Project quantity support", "WhatsApp quote response"].map((item) => (
-                <div key={item} className="rounded-2xl border bg-white px-4 py-4 text-sm font-black text-primary shadow-sm">
-                  {item}
+            <div className="grid gap-4 sm:grid-cols-2">
+              {ifanProducts.slice(0, 2).map((product) => (
+                <div key={product.slug} className="group overflow-hidden rounded-[1.8rem] border border-sky-100 bg-white shadow-lg shadow-sky-900/8">
+                  <div className="relative aspect-[4/4.2] overflow-hidden">
+                    <Image
+                      src={product.imageUrl}
+                      alt={`${product.name} by IFAN`}
+                      fill
+                      sizes="(min-width: 1024px) 24vw, 100vw"
+                      className="object-cover transition duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#041528]/65 via-transparent to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <Badge className="border-white/20 bg-white/90 text-primary">IFAN Product Line</Badge>
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <p className="text-xs font-black uppercase tracking-[0.14em] text-sky-600">{product.spec}</p>
+                    <h3 className="mt-2 font-display text-2xl font-black tracking-tight text-primary">{product.name}</h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">{product.description}</p>
+                  </div>
                 </div>
               ))}
-            </div>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            {ifanProducts.map((product) => (
-              <div key={product.slug} className="group overflow-hidden rounded-[1.8rem] border border-sky-100 bg-white shadow-xl shadow-sky-900/8">
-                <div className="relative aspect-[4/4.2] overflow-hidden">
-                  <Image
-                    src={product.imageUrl}
-                    alt={`${product.name} by IFAN`}
-                    fill
-                    sizes="(min-width: 1024px) 22vw, 100vw"
-                    className="object-cover transition duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#041528]/65 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <Badge className="border-white/20 bg-white/90 text-primary">IFAN Product Line</Badge>
-                  </div>
-                </div>
-                <div className="p-5">
-                  <p className="text-xs font-black uppercase tracking-[0.14em] text-sky-600">{product.spec}</p>
-                  <h3 className="mt-2 font-display text-2xl font-black tracking-tight text-primary">{product.name}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{product.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-[#f3f8fd] py-20">
-        <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-sky-200/45 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
-        <div className="section-shell relative rounded-[2.4rem] bg-gradient-to-br from-[#041528] via-primary to-[#0c7fc0] p-5 shadow-2xl shadow-sky-950/20 md:p-8">
-          <div className="construction-grid absolute inset-0 rounded-[2.4rem] opacity-45" />
-          <div className="relative grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div className="rounded-[2rem] border border-white/15 bg-white/10 p-6 text-white backdrop-blur md:p-8">
-              <Badge className="mb-5 border-white/20 bg-white/15 text-white">Trusted Local Supplier</Badge>
-              <h2 className="font-display text-4xl font-black leading-[0.95] tracking-[-0.05em] md:text-6xl">
-                Why Customers Choose Touray Kunda
-              </h2>
-              <p className="mt-5 text-base leading-8 text-sky-100">
-                Buyers need stock that is available, guidance that is practical, and a team that responds quickly. Touray Kunda Enterprise keeps sourcing simple for homeowners, tradespeople, and construction buyers.
-              </p>
-              <div className="mt-7 grid gap-3">
-                {reasons.map((reason, index) => (
-                  <div key={reason} className="group flex items-center gap-3 rounded-2xl border border-white/12 bg-white/10 p-4 transition hover:bg-white/16">
-                    <span className="grid size-10 shrink-0 place-items-center rounded-full bg-sky-300 text-primary">
-                      <CheckCircle2 className="size-5" />
-                    </span>
-                    <p className="font-bold leading-6">{reason}</p>
-                    <span className="ml-auto hidden font-display text-xl font-black text-white/20 sm:block">{String(index + 1).padStart(2, "0")}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-7 grid grid-cols-3 gap-3 border-t border-white/15 pt-6">
-                {[
-                  ["Fast", "Quote response"],
-                  ["Wide", "Product range"],
-                  ["Local", "Gambia supply"]
-                ].map(([value, label]) => (
-                  <div key={label} className="rounded-2xl bg-white p-4 text-primary">
-                    <p className="font-display text-2xl font-black">{value}</p>
-                    <p className="mt-1 text-xs font-bold uppercase tracking-[0.12em] text-sky-600">{label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="relative min-h-[620px] overflow-hidden rounded-[2rem] border border-white/20 bg-white/10 p-3 shadow-2xl shadow-sky-950/25 backdrop-blur md:min-h-[700px]">
-              <div className="grid h-full min-h-[596px] grid-cols-6 grid-rows-6 gap-3 md:min-h-[676px]">
-                {galleryImages.slice(0, 6).map((item, index) => {
-                  const placement = [
-                    "col-span-6 row-span-3",
-                    "col-span-3 row-span-2",
-                    "col-span-3 row-span-2",
-                    "col-span-2 row-span-1",
-                    "col-span-2 row-span-1",
-                    "col-span-2 row-span-1"
-                  ][index];
-
-                  return (
-                    <div key={item.title} className={`group relative overflow-hidden rounded-[1.4rem] ${placement}`}>
-                      <Image
-                        src={getOptimizedImageUrl(item.imageUrl, index === 0 ? 1200 : 640, 84)}
-                        alt={item.title}
-                        fill
-                        sizes={index === 0 ? "(min-width: 1024px) 50vw, 100vw" : "(min-width: 1024px) 18vw, 50vw"}
-                        className="object-cover transition duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#041528]/75 via-[#041528]/12 to-transparent" />
-                      <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3">
-                        <p className="max-w-[12rem] text-xs font-black uppercase tracking-[0.18em] text-white drop-shadow md:text-sm">
-                          {item.title}
-                        </p>
-                        <span className="h-1.5 w-14 rounded-full bg-destructive" />
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="absolute right-6 top-6 max-w-56 rounded-[1.4rem] border border-white/25 bg-white/92 p-5 text-primary shadow-2xl backdrop-blur">
-                <p className="font-display text-3xl font-black">Quote-first</p>
-                <p className="mt-2 text-sm font-bold leading-6 text-slate-600">No forced online payment. Send your material list and confirm price fast.</p>
-              </div>
             </div>
           </div>
         </div>
@@ -426,7 +334,7 @@ export default function HomePage() {
                 <a href={whatsappLink()}>WhatsApp Button</a>
               </Button>
               <Button asChild variant="outline">
-                <a href={phoneLink(PHONE_NUMBERS[0])}>Call Button</a>
+                <a href={phoneLink(PHONE_NUMBERS[0])}>Call Us</a>
               </Button>
             </div>
             <p className="mt-6 text-sm leading-7 text-muted-foreground">Location placeholder: The Gambia. Opening hours placeholder: Contact store for current hours.</p>

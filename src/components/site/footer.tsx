@@ -46,7 +46,11 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 py-5 text-center text-xs text-slate-400">
-        © {new Date().getFullYear()} Touray Kunda Enterprise. B.S.T Building Materials, Plumbing & Electricals.
+        © {new Date().getFullYear()} Touray Kunda Enterprise. B.S.T Building Materials, Plumbing & Electricals. Website by{" "}
+        <a href="https://2mbconsultancy.com" target="_blank" rel="noreferrer" className="text-sky-300 hover:text-white">
+          2MB Consultancy
+        </a>
+        .
       </div>
     </footer>
   );

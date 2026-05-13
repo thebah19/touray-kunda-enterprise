@@ -44,7 +44,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <div className="flex flex-col justify-center">
           <div className="mb-4 flex flex-wrap gap-2">
             <Badge>{category?.name}</Badge>
-            <Badge className="border-green-200 bg-green-50 text-green-700">{product.availability}</Badge>
           </div>
           <h1 className="font-display text-4xl font-black tracking-[-0.05em] text-primary md:text-6xl">{product.name}</h1>
           <p className="mt-5 text-xl font-bold text-slate-700">{product.spec}</p>

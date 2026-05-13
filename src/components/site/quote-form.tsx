@@ -102,24 +102,18 @@ export function QuoteForm() {
                 <Field label="WhatsApp number" name="whatsapp" type="tel" />
                 <Field label="Location" name="location" placeholder="Town / area" />
               </div>
-              <div className="grid gap-4 md:grid-cols-2">
-                <div className="flex flex-col gap-2">
-                  <Label htmlFor="quantity">Quantity</Label>
-                  <Input id="quantity" name="quantity" placeholder="Example: 10 pieces / 3 cartons" />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <Label htmlFor="delivery">Delivery required?</Label>
-                  <select
-                    id="delivery"
-                    name="delivery"
-                    value={delivery}
-                    onChange={(event) => setDelivery(event.target.value)}
-                    className="h-12 rounded-2xl border bg-background px-4 text-sm outline-none focus:border-ring focus:ring-2 focus:ring-ring/20"
-                  >
-                    <option>Yes</option>
-                    <option>No</option>
-                  </select>
-                </div>
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="delivery">Delivery required?</Label>
+                <select
+                  id="delivery"
+                  name="delivery"
+                  value={delivery}
+                  onChange={(event) => setDelivery(event.target.value)}
+                  className="h-12 rounded-2xl border bg-background px-4 text-sm outline-none focus:border-ring focus:ring-2 focus:ring-ring/20"
+                >
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
               </div>
               <div className="flex flex-col gap-2">
                 <Label htmlFor="materials">Product list / material list</Label>
